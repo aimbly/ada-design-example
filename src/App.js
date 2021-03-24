@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { A11yContextProvider, Flex, Text, Button } from 'ada-design';
 import styled from 'styled-components';
 
-import Image from './components/Image';
+import Image from './components/ImageWithA11y';
 import AwesomeModal from './components/AwesomeModal';
 
 import logo from './logo.svg';
@@ -29,7 +29,13 @@ function App() {
           Open Modal
         </Button>
 
-        <Button variant="primary" marginTop={12} onClick={() => setModalVariant(isTrailModal ? 'default' : 'trail')}>
+        <Button
+          className="my-awesome-custom-button"
+          shouldShowSuccess={false}
+          variant="primary"
+          marginTop={12}
+          onClick={() => setModalVariant(isTrailModal ? 'default' : 'trail')}
+        >
           Toggle Modal Variant
         </Button>
 
