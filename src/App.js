@@ -14,6 +14,7 @@ const isDev = () => {
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [altText, setAltText] = useState();
   const [modalVariant, setModalVariant] = useState('default');
 
   const isTrailModal = modalVariant === 'trail';
@@ -30,7 +31,11 @@ function App() {
       }}
     >
       <AppHeader as="header">
-        <Image src={logo} />
+        <Image src={logo} alt={altText} />
+
+        <Button variant="primary" onClick={() => setAltText(altText ? undefined : 'Hello')}>
+          Current Alt Text: "{altText}"
+        </Button>
 
         <Text marginBottom={24} color="jewel">
           Current modal variant: {modalVariant}
